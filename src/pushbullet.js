@@ -4,7 +4,7 @@ const { map, reduce } = require("ramda");
 const accessToken = process.env.PUSHBULLET_API;
 const pusher = new PushBullet(accessToken);
 
-const { findUsersByProject } = require("./db");
+const { findUsersByProject, updateUser } = require("./user");
 
 const NOTE_TITLE = "Detox CI";
 
@@ -15,7 +15,10 @@ const handlePush = (sender, message) => {
     sendNote(sender, "Sir ! Gotham needs you ! Batman must return !");
   }
   if (message.toLowerCase() === "stop") {
-    updateShouldReceive(sender);
+    updateUser({ mail: sender, shouldReceiveUpdate: false });
+  }
+  if (message.toLowerCase() === "start") {
+    updateUser({ mail: sender, shouldReceiveUpdate: true });
   }
 };
 
