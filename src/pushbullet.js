@@ -11,7 +11,7 @@ const NOTE_TITLE = "Detox CI";
 let modifiedAfter = Math.floor(new Date().getTime() / 1000);
 
 const handlePush = (sender, message) => {
-  if (message === "Alfred ?") {
+  if (message.toLowerCase() === "Alfred ?") {
     sendNote(sender, "Sir ! Gotham needs you ! Batman must return !");
   }
   if (message.toLowerCase() === "stop") {
