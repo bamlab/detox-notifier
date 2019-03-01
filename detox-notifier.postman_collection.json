@@ -1,0 +1,156 @@
+{
+	"info": {
+		"_postman_id": "87864896-cd3b-4554-9832-fc8e64f09bac",
+		"name": "Detox Notifier",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create user",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"name\": \"Louis\",\n\t\"mail\": \"louisk@bam.tech\",\n\t\"shouldReceiveUpdate\": true,\n\t\"project\": \"ada\"\n}"
+				},
+				"url": {
+					"raw": "localhost:6767/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "6767",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all users",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:6767/api/users",
+					"host": [
+						"localhost"
+					],
+					"port": "6767",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete user",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"mail\": \"louisk@bam.tech\"\n}"
+				},
+				"url": {
+					"raw": "localhost:6767/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "6767",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update user",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"mail\": \"louisk@bam.tech\",\n\t\"shouldReceiveUpdate\": true\n}"
+				},
+				"url": {
+					"raw": "localhost:6767/api/user",
+					"host": [
+						"localhost"
+					],
+					"port": "6767",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Send tests results",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n        \"name\": \"Vehicle connection\",\n        \"fail\": false\n    },\n    {\n        \"name\": \"Login\",\n        \"fail\": false\n    },\n    {\n        \"name\": \"Free Floating booking\",\n        \"fail\": true\n    }\n]"
+				},
+				"url": {
+					"raw": "localhost:6767/api/results/ada",
+					"host": [
+						"localhost"
+					],
+					"port": "6767",
+					"path": [
+						"api",
+						"results",
+						"ada"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
